@@ -1,0 +1,5 @@
+1) how to use dynamic cast with multiple inheritance
+answer = cannot covert bw siblings using dynamic cast.
+2) perfect forwarding doubt n reference collapsing
+in code of perfect forwarding why move/copy od test class are not called;
+3)push_back vs emplace_back

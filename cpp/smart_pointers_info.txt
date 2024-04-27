@@ -1,0 +1,5 @@
+1) https://www.geeksforgeeks.org/auto_ptr-unique_ptr-shared_ptr-weak_ptr-in-cpp/
+2) https://www.geeksforgeeks.org/weak_ptr-in-cpp/ 
+3) https://www.geeksforgeeks.org/shared_ptr-in-cpp/
+4) https://www.nextptr.com/tutorial/ta1358374985/shared_ptr-basics-and-internals-with-examples
+5) https://stackoverflow.com/questions/49585818/why-does-shared-ptr-needs-to-hold-reference-counting-for-weak-ptr

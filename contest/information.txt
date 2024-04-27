@@ -1,0 +1,2 @@
+contest3 -
+1) https://www.geeksforgeeks.org/k-th-smallest-absolute-difference-two-elements-array/

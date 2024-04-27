@@ -1,0 +1,2 @@
+1) geeksforgeeks.org/why-quick-sort-preferred-for-arrays-and-merge-sort-for-linked-lists/
+2) robin carp algo negative dividend problem - https://www.geeksforgeeks.org/modulus-on-negative-numbers/ 

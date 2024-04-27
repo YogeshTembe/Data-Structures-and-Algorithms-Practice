@@ -1,0 +1,68 @@
+https://www.geeksforgeeks.org/object-oriented-programming-in-cpp/
+
+(1) smart pointers -
+1) https://www.geeksforgeeks.org/auto_ptr-unique_ptr-shared_ptr-weak_ptr-in-cpp/
+https://en.cppreference.com/w/cpp/memory/auto_ptr
+https://stackoverflow.com/questions/4316727/why-can-you-return-a-stdunique-ptr-without-stdmove
+2) https://www.geeksforgeeks.org/weak_ptr-in-cpp/ 
+3) https://www.geeksforgeeks.org/shared_ptr-in-cpp/
+4) https://www.nextptr.com/tutorial/ta1358374985/shared_ptr-basics-and-internals-with-examples
+5) https://stackoverflow.com/questions/49585818/why-does-shared-ptr-needs-to-hold-reference-counting-for-weak-ptr
+
+(2) enums -
+https://www.nextptr.com/tutorial/ta1423015134/scoped-class-enums-fundamentals-and-examples
+
+Applications of stringstream
+https://www.simplilearn.com/tutorials/cpp-tutorial/string-stream-in-cpp#:~:text=The%20StringStream%20class%20in%20C%2B%2B,numbers%2C%20and%20vice%2Dversa.
+
+
+(3) using keyword -
+https://www.geeksforgeeks.org/using-keyword-in-cpp-stl/
+checkout using.cpp file for code.
+
+(4)polymorphism with base class pointer and derived class object
+https://stackoverflow.com/questions/71737656/what-are-the-use-cases-for-a-base-class-pointer-pointing-to-a-derived-class-obje
+https://stackoverflow.com/questions/4937180/a-base-class-pointer-can-point-to-a-derived-class-object-why-is-the-vice-versa
+https://stackoverflow.com/questions/11855018/c-inheritance-downcasting
+https://stackoverflow.com/questions/12588264/static-cast-and-rtti-vs-dynamic-cast
+https://stackoverflow.com/questions/28002/regular-cast-vs-static-cast-vs-dynamic-cast
+
+(5) exception handling
+https://www.geeksforgeeks.org/exception-handling-c/
+https://www.geeksforgeeks.org/stack-unwinding-in-c/
+
+template array length deduction 
+https://stackoverflow.com/questions/2384107/how-does-this-function-template-deduce-the-size-of-an-array
+
+(6) perfect forwarding
+https://stackoverflow.com/questions/24732926/move-semantics-and-perfect-forwarding-difference
+https://stackoverflow.com/questions/9671749/what-is-the-difference-between-stdmove-and-stdforward
+
+function pointer
+https://www.geeksforgeeks.org/function-pointer-in-cpp/
+
+(7) type inference
+https://www.geeksforgeeks.org/type-inference-in-c-auto-and-decltype/
+
+(8) operator overloading
+https://www.geeksforgeeks.org/operator-overloading-cpp/
+
+(9) auto return type
+https://stackoverflow.com/questions/66910231/c-auto-return-type
+
+(10) overloading new and delete
+https://www.geeksforgeeks.org/overloading-new-delete-operator-c/
+https://www.geeksforgeeks.org/representation-of-int-variable-in-memory-in-cpp/
+
+(11)copy assignment operator, why does it need return type
+https://www.geeksforgeeks.org/copy-constructor-vs-assignment-operator-in-c/
+https://stackoverflow.com/questions/15292892/what-is-the-return-type-of-the-built-in-assignment-operator#:~:text=The%20return%20type%20is%20important,b%20and%20b%20into%20a%20.
+
+(12)function that returns by reference 
+https://www.scaler.com/topics/cpp-return-reference/
+
+(13)volatile keyword
+https://www.geeksforgeeks.org/understanding-volatile-qualifier-in-c/
+
+(14)static assert
+geeksforgeeks.org/understanding-static_assert-c-11/

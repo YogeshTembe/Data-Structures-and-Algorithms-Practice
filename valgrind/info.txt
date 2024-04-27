@@ -1,0 +1,54 @@
+
+Valgrind is a GPL v2 licensed collection that utilizes binary instrumentation or dynamic recompilation to offer a set of analysis tools. There are six tools in total that can be used to detect memory management, threading errors, profile programming, and generating call graphs. The tools are Memcheck, Helgrind, DRD, Callgrind, Cachegrind and Massif.
+
+https://medium.com/@muirujackson/step-by-step-guide-to-detect-specific-memory-leaks-issues-with-valgrind-memcheck-b9aa45b967c5
+https://www.linuxuntu.com/install-valgrind-linux/
+
+
+GCC and G++ are both used for compiling C and C++ languages. However, GCC is used for compiling C programs while G++ is used for compiling C++ programs. G++ automatically links files in the libraries of std C++ during object file linking, which does not happen with GCC.
+https://stackoverflow.com/questions/172587/what-is-the-difference-between-g-and-gcc
+
+full working command for memcheck tool of valgrind =>
+need to have "-g" flag in compilation.
+valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes ./memory_leak_2
+
+valgrind works for any executable not only for C and CPP.
+
+Types of errors valgrind can detect =
+1)if we access array elements beyond array size. i.e reading uninitialized values
+2)memory leak with malloc or new
+3)double free error (the double free causes seg fault as well, but valgrind tells us at which line the memory was allocated and where we did double free) . we get error "Invalid free()"
+4)accessing memoery that is free / delete. we get error "Invalid read of size 4"
+
+Reference =>
+1)https://youtu.be/DyqstSE470s?si=rGT1pbZoAztz8Ucu
+2)https://youtu.be/ykXZdYs9cOw?si=DGYpkNt4gT_qQzXA
+3) valgrind tools = https://valgrind.org/docs/manual/manual.html
+---------------------------------------------------------------------------------
+
+callgrind shows time taken by every function and also flow graph or call graph.
+callgrind uses cachegrind internally.
+steps =>
+1) g++ -g -o test test.cpp 
+2) valgrind --tool=callgrind ./test
+3) callgrind_annotate callgrind.out.8536 --inclusive=yes --tree=both
+4) kcachegrind calgrind.out.12345 => this will open a window with details and graph
+to see svg graph 
+5) apt-get install python3 graphviz
+6) pip install gprof2dot
+7) gprof2dot -f callgrind callgrind.out.x | dot -Tsvg -o output.svg
+
+massif shows time vs memory usage graph also shows section of code that uses high amount of memory.
+1) g++ -g -o test test.cpp 
+2) valgrind --tool=massif ./test
+3) ms_print massif.out.8864
+
+Refereance =>
+1)https://medium.com/@jacksonbelizario/profiling-a-c-program-with-valgrind-callgrind-b41f15b31527
+2)https://github.com/jrfonseca/gprof2dot?tab=readme-ov-file
+3)https://valgrind.org/docs/manual/cl-manual.html#cl-manual.functionality
+
+------------------
+to-do =>
+1)need to understand kcachegrind output and gprof output.
+2)check if there are any other tools you want to know from valgrind.
