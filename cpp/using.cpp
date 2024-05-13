@@ -23,7 +23,7 @@ int main()
 {
 
 	Derived d(42);
-	//d.y = 12;
+	// d.y = 12;
 	cout << d.x << " " << d.y << '\n';
     Derived d1(34,56);
     cout << d1.x << " " << d1.y << '\n';

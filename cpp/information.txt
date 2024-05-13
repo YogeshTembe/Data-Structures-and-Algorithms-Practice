@@ -66,3 +66,15 @@ https://www.geeksforgeeks.org/understanding-volatile-qualifier-in-c/
 
 (14)static assert
 geeksforgeeks.org/understanding-static_assert-c-11/
+
+(15)how to get assembly code from cpp code
+command = gcc -S .\test.cpp
+this generates .s file with assembly code.
+
+(16)https://stackoverflow.com/questions/1545080/c-code-file-extension-what-is-the-difference-between-cc-and-cpp
+
+(17)difference in compiling and linking a cpp file with g++
+https://stackoverflow.com/questions/14620435/c-error-undefined-reference-to-main
+https://www.geeksforgeeks.org/compiling-with-g-plus-plus/
+
+If our cpp file does not have main function then just create a object file with that cpp file using "g++ -c" command and then use that object with other cpp files to create a executable.

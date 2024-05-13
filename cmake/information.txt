@@ -1,0 +1,76 @@
+1) CMake is a build system generator that is platform- and compiler-independent. That means you don’t need to rewrite code for CMake again when you want to port your project from one system to another. CMake also has its own language, called the CMake language.cmake is used to compile project with platform and compiler independent way.
+it generated makefiles
+
+2) How to use Cmake to build a simple cpp project.
+cmake --version => check cmake version installed on system
+create a CMakeLists.txt file.
+mkdir build => required for cmake
+cd build
+cmake ../ => to execute CMakeLists.txt, this command generates the makefile for the project
+cmake --build . => creates a executable
+
+3)cmake for simple hello world cpp file
+cmake_minimum_required(VERSION 3.16.3)
+project(Hello)
+add_executable(hello hello.cpp)
+
+To set cpp20 and set compilation flags we can use these =
+set(CMAKE_CXX_STANDARD 20)
+SET(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_FLAGS "-Wall -Werror -O2 -march=native")
+
+To make a shared library =
+cmake_minimum_required(VERSION 3.16.3)
+project(Math)
+add_library(math SHARED add.cpp multiply.cpp)
+add_executable(main main.cpp)
+target_link_libraries(main math)
+we can directly run main executable in build directory without setting LD_LIBRARY_PATH because cmake sets it for us. check "ldd main"
+
+4) Recursive cmake
+If we have a project divided in directories then we can have one CMakeLists.txt file for every directory.
+Eg.
+we have this directory structure=
+-project 
+--> main = main.cpp, CMakeLists.txt
+--> math = add.cpp, multiply.cpp, add.h, multiply.h, CMakeLists.txt
+--> CMakeLists.txt
+
+main.cpp includes "add.h" and "multiply.h" and uses functions from it.
+we want to make shared library in math directory and have a executable from main.cpp.
+
+CMakeLists.txt from math directory =
+add_library(math SHARED add.cpp multiply.cpp)
+target_include_directories(math PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) #expose header files
+
+CMakeLists.txt from main directory =
+add_executable(main main.cpp)
+target_link_libraries(main math)
+
+CMakeLists.txt from project directory =
+cmake_minimum_required(VERSION 3.16.3)
+project(recursive)
+add_subdirectory(main)
+add_subdirectory(math)
+
+Now how to build it=
+mkdir build
+cd build
+cmake ../ => This makes two folder inside build directory math and main. Each folder has Makefile. 
+cmake --build .  => main executable will be present in main folder and libmath.so file will be present in main folder.
+./main => this executable is final output. "ldd main" shows libmath.so is present.
+
+5) Huge Cmake tutorial = https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b#:~:text=Introduction,with%20the%20native%20build%20environment.
+
+6) "cmake .. -G Ninja" command generates these files for Ninja. Then run "ninja" command to generate executable
+This is similay to using make , "cmake .." and "make" commands would generate same executable.
+So cmake can be used with GNU make and ninja both.
+
+7) https://julienjorge.medium.com/an-overview-of-build-systems-mostly-for-c-projects-ac9931494444
+https://www.linkedin.com/pulse/modern-build-systems-comparative-analysis-gnu-make-cmake-ninja/
+
+-------------------
+References
+1)https://youtu.be/k8-ShLBcN8Q?si=7QUpMDIfQRqL3dv8
+2)https://youtu.be/4VAuaPDX-j4?si=JvAcmKC3bRB-nItD
+3)https://youtu.be/MjrJZ10fb0s?si=FLs-pu9yGXG2Yyvd

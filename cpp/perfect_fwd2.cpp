@@ -13,7 +13,7 @@ void forwarding( t && arg ) {
     std::cout << "via std::move: ";
     overloaded( std::move( arg ) ); // conceptually this would invalidate arg
     std::cout << "by simple passing: ";
-    overloaded( arg );+
+    overloaded( arg );
 }
 
 int main() {
@@ -23,3 +23,14 @@ int main() {
     int x = 5;
     forwarding( x );
 }
+
+/*OUTPUT 
+initial caller passes rvalue:
+via std::forward: by rvalue
+via std::move: by rvalue
+by simple passing: by lvalue
+initial caller passes lvalue:
+via std::forward: by lvalue
+via std::move: by rvalue
+by simple passing: by lvalue
+*/
