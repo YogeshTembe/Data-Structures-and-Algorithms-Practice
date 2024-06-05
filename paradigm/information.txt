@@ -41,6 +41,7 @@ Composition = class Body has object of class Heart, Heart cannot exist without a
 
 6) Object Oriented Programming = 
 https://www.programiz.com/cpp-programming/oop
+IPEA
 
 7) All short forms =
 DRY = Don't Repeat Yourself
@@ -49,3 +50,5 @@ TDD = Test Driven Development
 BDUF = Big design up front (BDUF) is a software development approach in which the program's design is to be completed and perfected before that program's implementation is started. It is often associated with the waterfall model of software development.
 SOC = Separation of Concerns (SoC) is a fundamental principle in software engineering and design aimed at breaking down complex systems into smaller, more manageable parts. The goal is to organize a system’s components in a way that each part addresses a single concern, or a cohesive aspect of functionality, rather than mixing multiple concerns together. This approach enhances modularity, maintainability, and scalability of software systems.
 YAGNI = YAGNI principle ("You Aren't Gonna Need It") is a practice in software development which states that features should only be added when required.
+
+https://www.geeksforgeeks.org/difference-between-local-storage-session-storage-and-cookies/

@@ -9,6 +9,9 @@ https://stackoverflow.com/questions/4316727/why-can-you-return-a-stdunique-ptr-w
 4) https://www.nextptr.com/tutorial/ta1358374985/shared_ptr-basics-and-internals-with-examples
 5) https://stackoverflow.com/questions/49585818/why-does-shared-ptr-needs-to-hold-reference-counting-for-weak-ptr
 
+Advantage of member initializer list = 
+https://hackthedeveloper.com/constructor-member-initializer-list-cpp/#:~:text=Improves%20Performance,-The%20Construct%20member&text=Code%20Explaination%3A,data%20member%20of%20Example2%20type.
+
 (2) enums -
 https://www.nextptr.com/tutorial/ta1423015134/scoped-class-enums-fundamentals-and-examples
 
@@ -52,6 +55,8 @@ https://stackoverflow.com/questions/66910231/c-auto-return-type
 
 (10) overloading new and delete
 https://www.geeksforgeeks.org/overloading-new-delete-operator-c/
+
+
 https://www.geeksforgeeks.org/representation-of-int-variable-in-memory-in-cpp/
 
 (11)copy assignment operator, why does it need return type
@@ -76,5 +81,10 @@ this generates .s file with assembly code.
 (17)difference in compiling and linking a cpp file with g++
 https://stackoverflow.com/questions/14620435/c-error-undefined-reference-to-main
 https://www.geeksforgeeks.org/compiling-with-g-plus-plus/
+https://stackoverflow.com/questions/10884105/how-to-compile-and-link-together-object-files-in-c-using-the-same-header-file
 
 If our cpp file does not have main function then just create a object file with that cpp file using "g++ -c" command and then use that object with other cpp files to create a executable.
+
+(18) cpp interview questions
+https://www.interviewbit.com/cpp-interview-questions/
+https://www.geeksforgeeks.org/cpp-interview-questions/                                                

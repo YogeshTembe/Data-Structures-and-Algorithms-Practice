@@ -1,13 +1,13 @@
 1) CMake is a build system generator that is platform- and compiler-independent. That means you don’t need to rewrite code for CMake again when you want to port your project from one system to another. CMake also has its own language, called the CMake language.cmake is used to compile project with platform and compiler independent way.
-it generated makefiles
+it generates makefiles
 
 2) How to use Cmake to build a simple cpp project.
 cmake --version => check cmake version installed on system
 create a CMakeLists.txt file.
 mkdir build => required for cmake
 cd build
-cmake ../ => to execute CMakeLists.txt, this command generates the makefile for the project
-cmake --build . => creates a executable
+cmake ../ => to execute CMakeLists.txt, this command generates the makefile for the project in build folder (ie. current folder).
+cmake --build . => creates a executable in build folder (ie. current folder).
 
 3)cmake for simple hello world cpp file
 cmake_minimum_required(VERSION 3.16.3)
@@ -25,6 +25,7 @@ project(Math)
 add_library(math SHARED add.cpp multiply.cpp)
 add_executable(main main.cpp)
 target_link_libraries(main math)
+This creates a "main" executable and "libmath.so" shared library in build folder.
 we can directly run main executable in build directory without setting LD_LIBRARY_PATH because cmake sets it for us. check "ldd main"
 
 4) Recursive cmake
@@ -41,7 +42,7 @@ we want to make shared library in math directory and have a executable from main
 
 CMakeLists.txt from math directory =
 add_library(math SHARED add.cpp multiply.cpp)
-target_include_directories(math PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) #expose header files
+target_include_directories(math PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) #expose header files = here CMAKE_CURRENT_SOURCE_DIR is math, because of this line main.cpp can use -> #include "math.h" instead of #include "../math/math.h"
 
 CMakeLists.txt from main directory =
 add_executable(main main.cpp)
@@ -66,8 +67,57 @@ cmake --build .  => main executable will be present in main folder and libmath.s
 This is similay to using make , "cmake .." and "make" commands would generate same executable.
 So cmake can be used with GNU make and ninja both.
 
+7) how to create only object file using cmake =
+
+For eg. we have three files test.h, test.cpp and main.cpp. we are using a function declared in from test.h in main.cpp.
+so we can create a object file from test.cpp and then use that object file along with main.cpp to create final executable.
+
+cmake_minimum_required(VERSION 3.16.3)
+project(Hello)
+add_library(testobj OBJECT test.cpp)
+add_executable(hello $<TARGET_OBJECTS:testobj> hello.cpp)
+
+read more about object libraries = https://cmake.org/cmake/help/latest/command/add_library.html#object-libraries
+
 7) https://julienjorge.medium.com/an-overview-of-build-systems-mostly-for-c-projects-ac9931494444
 https://www.linkedin.com/pulse/modern-build-systems-comparative-analysis-gnu-make-cmake-ninja/
+
+8) How to add an include directory to the compiler's include path =>
+you can use the -I flag with both gcc and g++ compilers. This flag specifies the directory to be added to the list of directories to be searched for header files.
+let's say we have this following directory structure-
+project/
+├── src/
+│   └── main.cpp
+├── include/
+│   └── myheader.h
+
+In main.cpp we will use -> #include "myheader.h" instead of -> #include "../include/myheader.h" 
+g++ -I./include -o main src/main.cpp = compiles main.cpp and Adds the include directory to the compiler's include path.
+./main  = to run executable
+
+How to do this with cmake =>
+project/
+├── src/
+│   └── main.cpp
+├── include/
+│   └── myheader.h
+└── CMakeLists.txt
+
+cmake_minimum_required(VERSION 3.16.3)
+project(MyProject)
+add_executable(myTarget src/main.cpp)
+target_include_directories(myTarget PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+INTERFACE: All the include directories following INTERFACE will NOT be used for the current target but will be accessible for the other targets that have dependencies on the current target.
+PUBLIC: All the directories following PUBLIC will be used for the current target and the other targets that have dependencies on the current target
+PRIVATE: All the include directories following PRIVATE will be used for the current target only.
+
+9)Differnce in angular brackets and double quotes in "include" statement in cpp =>
+Angle Brackets (< >): The compiler searches the system include directories and any directories specified by the -I option in the command line. It does not look in the directory of the including file.
+
+Double Quotes (" "): The compiler first searches the directory of the including file. If it does not find the file there, it then searches the system include directories and any directories specified by the -I option.
+
+system include directories = /usr/include on Unix-like systems or the directories specified in the compiler's settings
 
 -------------------
 References

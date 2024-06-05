@@ -1,4 +1,5 @@
 1) https://domiyanyue.medium.com/c-development-tutorial-4-static-and-dynamic-libraries-7b537656163e#:~:text=A%20static%20library%20(or%20archive,loaded%20to%20memory%20at%20runtime.
+https://www.linkedin.com/pulse/shared-dynamic-libraries-c-santosh-s-malagi/
 
 2) when we use "g++" command to compile the cpp file then it automaticaly links the file with libstdc++.so file.
 main.cpp contains simple hello cout statement.
@@ -37,6 +38,12 @@ ar -crs libtest.a multiply.o add.o => so we call libtest.a a archive file. Archi
 ar -t libtest.a => this step is just for information of which object files are contained by archive file
 g++ main.cpp -o main_static -ltest -L./  => "-l" option specifies name of library and "-L" option specifies path where we can find that library
 ./main_static
+
+meaning of "crs" flags in ar command =>
+-c: Ensures that libtest.a is created if it does not already exist.
+-r: Replaces or adds add.o and multiply.o in the archive.
+-s: Creates an index for the archive to help with symbol lookup during linking.
+-t: Lists the files in the archive without extracting them.
 
 If we create dynamic/shared library from add.cpp and multiply.cpp =
 g++ -c add.cpp multiply.cpp -fPIC => -fPIC flag is used to tell compiler to generate position independent code. which is required becasue in case of dynamic library the code will be loaded in memory at runtime and code (functions inside it) will not have fixed address so that's why we need position independent code for dynamic library.

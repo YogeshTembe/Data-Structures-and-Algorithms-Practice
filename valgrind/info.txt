@@ -18,7 +18,7 @@ Types of errors valgrind can detect =
 1)if we access array elements beyond array size. i.e reading uninitialized values
 2)memory leak with malloc or new
 3)double free error (the double free causes seg fault as well, but valgrind tells us at which line the memory was allocated and where we did double free) . we get error "Invalid free()"
-4)accessing memoery that is free / delete. we get error "Invalid read of size 4"
+4)accessing memory that is free / delete. we get error "Invalid read of size 4"
 
 Reference =>
 1)https://youtu.be/DyqstSE470s?si=rGT1pbZoAztz8Ucu
