@@ -8,6 +8,7 @@
 8)Relational Algebra = https://www.geeksforgeeks.org/introduction-of-relational-algebra-in-dbms/
 9)Data Definition Commands, Data Manipulation commands, Data Control
 commands, Transaction Control Commands. = https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/
+https://www.w3schools.com/sql/sql_foreignkey.asp
 10)group by order by  = https://www.geeksforgeeks.org/difference-between-order-by-and-group-by-clause-in-sql/
 https://www.javatpoint.com/group-by-vs-order-by
 11) having = https://www.tutorialspoint.com/sql/sql-having-clause.htm
@@ -20,23 +21,27 @@ Other select funcs = in, not in, between, is null, is not null
 13)SQL joins = https://www.programiz.com/sql/join
 14)Keys = https://www.javatpoint.com/dbms-keys
 15)Integrity constraints = https://www.scaler.com/topics/dbms/integrity-constraints-in-dbms/
+RED K = red key
 16)Triggers = https://www.javatpoint.com/triggers-in-sql-server
-18)ANOmalies in dbms = https://www.geeksforgeeks.org/anomalies-in-relational-model/
-17)pitfalls in relational database design = photo
-18)ACID = https://www.geeksforgeeks.org/acid-properties-in-dbms/
-19)Serializability – Conflict and View = to-do
-20)Concurrency Control: Lock-based, Timestamp-based protocols = 
+17)Anomalies in dbms = https://www.geeksforgeeks.org/anomalies-in-relational-model/
+assume student and courses table combined and now imagine insert, update, delete operations on it.
+https://www.geeksforgeeks.org/the-problem-of-redundancy-in-database/
+18)pitfalls in relational database design = photo
+19)ACID = https://www.geeksforgeeks.org/acid-properties-in-dbms/
+20)Serializability – Conflict and View = to-do
+21)Concurrency Control: Lock-based, Timestamp-based protocols = 
 https://www.tutorialspoint.com/dbms/dbms_concurrency_control 
 https://www.geeksforgeeks.org/timestamp-based-concurrency-control/
-21)Failure classification = https://www.geeksforgeeks.org/failure-classification-in-dbms/
-22)log based recovery, ARISE, Checkpoint = 
+22)Failure classification = https://www.geeksforgeeks.org/failure-classification-in-dbms/
+23)log based recovery, ARISE, Checkpoint = 
 https://www.geeksforgeeks.org/log-based-recovery-in-dbms/
 https://www.geeksforgeeks.org/algorithm-for-recovery-and-isolation-exploiting-semantics-aries/
-23)shadow paging = 
+24)shadow paging = 
 https://www.geeksforgeeks.org/shadow-paging-dbms/
-24)deadlock handling =
+25)deadlock handling =
 https://www.geeksforgeeks.org/deadlock-in-dbms/
-23)Resource allocation graph and bankers algorithm = to-do jenney's lectures.
+https://www.geeksforgeeks.org/race-condition-vulnerability/
+26)Resource allocation graph and bankers algorithm = to-do jenney's lectures.
 
 
 -------------------------------------------------------------------------------------------------------------
@@ -80,6 +85,8 @@ Armstrong's Axioms / Inference rules => To find out all the functional dependenc
                             if (x,y)-->z then this may not be true that x-->z or y-->z
 6)pseudo transitivity = if x-->y and (y,z)-->a then (x,z)-->a
 7)composition = if x-->y and a-->b then (x,a)-->(y,b)
+
+RAT UDP C
 
 Attribute closure / closure set => to find number of candidate keys in relation
 closure of x is = contains all the attributes determined by x.
@@ -240,7 +247,7 @@ The problem that can arise with 3NF is Nonprime attr --> prime attr , this relat
 4NF =>
 1)It should be in the Boyce-Codd Normal Form (BCNF).
 2)The table should not have any Multi-valued Dependency.
-
+For a dependency A → B, if for a single value of A, multiple values of B exists, then the relation will be a multi-valued dependency.
 -------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
 
