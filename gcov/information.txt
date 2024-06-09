@@ -1,0 +1,34 @@
+1) how to install gcov and lcov =>
+gcov comes with GNU cpp compiler so no need to seperately install it.
+sudo apt-get install lcov = this installs lcov and genhtml comes with it.
+
+2) how to use it =>
+--coverage = -fprofile-arcs -ftest-coverage -lgov
+
+g++ main.cpp -o main --coverage = this generates main.gcno
+./main = this generates main.gcda
+gcov main.cpp = this generates main.cpp.gcov, which contains the coverage information, like a test file. It contains the count of how many times a line is executed.
+
+To beautify the report we use lcov = 
+lcov --capture --directory . --output-file main_coverage.info --rc lcov_branch_coverage=1
+lcov --remove coverage.info '/usr/*' --output-file filtered_coverage.info = this step is optional, do this if you want to avoid having coverage of third party libraries that you have used. Instead of '/usr/*' you can specify any path where your libraries are located.
+
+genhtml main_coverage.info --output-directory out --branch-coverage --function-coverage = this generates a "out" folder and open "index.html" to see coverage of files.
+
+3) lcov flgas =
+--capture:
+This flag tells lcov to capture the coverage data. It reads the .gcda files generated during program execution to gather information about which parts of the code were executed.
+
+--directory .:
+This option specifies the directory to search for coverage data files (.gcda and .gcno). The . indicates the current directory.
+You can specify different directories if your coverage data is located elsewhere.
+
+--output-file coverage.info:
+This option specifies the name of the output file where the collected coverage data will be stored.
+In this case, the file is named coverage.info.
+
+--rc lcov_branch_coverage=1:
+The --rc option allows you to set runtime configuration options for lcov.
+lcov_branch_coverage=1 enables branch coverage reporting. Branch coverage measures how many branches (e.g., in if statements and other conditional structures) have been executed.
+Setting this option to 1 turns on branch coverage, providing more detailed coverage information compared to line coverage alone.
+
